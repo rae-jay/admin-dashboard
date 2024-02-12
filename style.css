@@ -1,0 +1,274 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	/* font: inherit; */
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+@font-face {
+    font-family: "roboto";
+    src: url("fonts/roboto-regular-webfont.woff2") format(woff2);
+    src: url("fonts/roboto-regular-webfont.woff") format(woff);
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root{
+    font-family: roboto, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+
+
+    --mainPurple: rgb(110, 80, 197);
+}
+
+
+
+
+
+
+.mainContainer{
+    /* height: 100vh;
+    width: 100vw; */
+    /* height: max(auto,100vh);
+    width: max(auto,100vw); */
+    /* height: auto;
+    width: auto; */
+    /* height: max(50px,60px); */
+    /* height: max(100vh,fit-content); */
+
+    min-height: 100vh;
+    /* i don't know why this has to be 98 or else it overflows but uh */
+    min-width: 98vw;
+
+    display: grid;
+
+    /* the max(250/22ch) used to just be 250, this lets it expand if the font is made huge */
+    /* the 700 was a 600 and i'm not sold on changing it but i don't think new/upload/share have enough room */
+    grid-template-columns: max(250px, 22ch) minmax(700px,4fr);
+    grid-template-rows: 150px minmax(450px,4fr);
+}
+
+
+
+.sidebar{
+    background-color: var(--mainPurple);
+
+    grid-row: 1/-1;
+
+    padding-top: 1rem;
+
+    display: grid;
+    gap: 2rem;    
+    align-content: start;
+}
+
+.sidebarLinkBlock{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    gap: 1.5rem;
+
+    align-items: center;
+}
+
+.sidebarLinkText{
+    color: white;
+    font-weight: 600;
+
+    /* im putting this where there's font-weight 600 */
+    letter-spacing: 0.1ch;
+}
+
+#logo > h1{
+    font-size: 1.5rem;
+
+    position: relative;
+    left: -0.5rem;
+}
+
+#logo > img{
+    width: 3rem;
+    height: 3rem;
+
+    position: relative;
+    left: 0.5rem;
+}
+
+
+
+
+
+
+
+.topbar{
+    background-color: white;
+
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 3fr 2fr;
+}
+
+.searchContainer{
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+    justify-content: start;
+
+    /* has a standard width that changes a lil with font size, but won't ever escape containment */
+    grid-template-columns: auto min(90%,55ch);
+
+    gap: 10px;
+    padding-left: 30px;
+}
+
+input[type="search"]{
+    border: none;
+    border-radius: 20px;
+    background-color: rgb(199, 214, 224);
+
+    height: 2rem;
+    font-size: 1rem;
+    padding-left: 1.5ch;
+}
+
+input[type="search"]:focus{
+    outline: var(--mainPurple) solid 1.5px;
+    box-shadow: 0 0 2px 2px var(--mainPurple);
+}
+
+
+.personalContainer{
+    font-weight: 600;
+
+    /* im putting this where there's font-weight 600 */
+    letter-spacing: 0.1ch;
+    /* and stopping it from potentially wrapping on super-zoon*/
+    white-space: nowrap;
+
+
+    display: grid;
+    grid-auto-flow: column;
+
+    padding-right: 50px;
+    padding-top: 10px;
+    justify-content: end;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.greetingContainer{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: 1fr 1fr;
+}
+
+.profileLarge{
+    height: 4rem;
+    width: 4rem;
+
+    grid-row: 1/3;
+}
+
+
+
+.upStuffTest{
+    background-color: blueviolet;
+}
+
+
+
+
+
+
+.three{
+    background-color: palegoldenrod;
+
+    display: grid;
+    grid-template-columns: 1fr 250px;
+}
+
+
+
+.bodyLeft{
+    /* background-color: aquamarine; */
+
+    padding: 20px;
+
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-auto-rows: 200px;
+}
+
+.projectBlock{
+    background-color: lime;
+}
+
+
+
+.bodyRight{
+    /* background-color: aqua; */
+
+    padding-top: 20px;
+    gap: 30px;
+
+    display:grid;
+    grid-template-columns: 225px;
+    grid-auto-rows: 300px;
+}
+
+.anncBlock{
+    background-color: lime;
+}
+
+
+
+
+.icon{
+    width: 1.5rem;
+    height: 1.5rem;
+
+    justify-self: end;
+}
+.profilePic{
+    height: 50px;
+    width: 50px;
+}
